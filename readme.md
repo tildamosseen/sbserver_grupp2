@@ -141,8 +141,12 @@ För att installera Maven i macOS kör ni kommandot
 ```brew install maven```
 
 ### Maven i Windows / CygWin
-Följ instruktionerna på denna sida för att installera Maven i Windows:
-[https://geekforum.wordpress.com/2015/03/19/install-git-and-maven-for-cygwin/](https://geekforum.wordpress.com/2015/03/19/install-git-and-maven-for-cygwin/) 
+Börja med att sätta miljövarabeln ```JAVA_HOME``` till den mapp som ni har Java installerat i, något i stil med ```c:\Program Files\Java\jdk1.8.0_191```, men detta är beroende på Windows och Javaversion. I CygWin kan ni skriva ```cygpath -u "$(which javac | sed -e 's,bin/javac,,')"``` för att få indikation på vad variabeln ska vara satt till. Kopiera inte rätt av, utan se till så ni får rätt format på strängen.
+
+När ni satt ```JAVA_HOME```så kan ni följa instruktionerna på denna sida för att installera Maven i Windows:
+[https://geekforum.wordpress.com/2015/03/19/install-git-and-maven-for-cygwin/](https://geekforum.wordpress.com/2015/03/19/install-git-and-maven-for-cygwin/)
+
+ 
 
 ### Maven i Linux
 Använd den pakethanterare som din linuxdist använder, exempelvis ````apt-get````
