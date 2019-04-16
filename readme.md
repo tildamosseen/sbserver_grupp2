@@ -62,8 +62,8 @@ Strukturen är som följer, detaljerad förklaring nedan
 
 1. `````pom.xml````` pomfilen är Mavens konfigurationsfil för projektet. Filen innehåller information som Maven behöver för att kompilera projektet. Om man behöver använda externa bibliotek behöver dessa skrivas in i pomfilen. Med allra största sannolikhet kommer ni inte att behöva ändra något i filen, information om hur filen är uppbyggd finns [här](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html) 
 1. `````readme.md````` filen som innehåller texten som ni läser nu. Detta är ingen mavenfil utan en fil som beskrivet innehållet i ett github-repository.
-1. `````src/````` mappen src är mappen under vilken all källkod ligger.
-1. `````readme.md`````
+1. `````src/````` mappen src är mappen under vilken all källkod och test.
+1. `````src/main````` här ligger all källkod och övriga resurser, ej test.
 1. `````readme.md`````
 ## Kompileringsinstruktioner
 
