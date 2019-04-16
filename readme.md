@@ -154,5 +154,5 @@ När ni öppnar den här sidan i eran fork, kommer [den här länken](../../sett
 ![Issues](.pics/issues.png)
 
 För att ge era gruppmedlemmar skrivrättigheter till er fork behöve ni lägga till dem som collaborators i inställningarna till er fork. Bilden nedan visar ett exempel, skriv in era gruppmedlemmars mailadress eller githubidentiter i textfältet under Collaborators för att göra detta. 
-
+När ni öppnar den här sidan i eran fork, kommer [den här länken](../../settings/collaborators) att leda er till sidan med collaborators-inställningar för er fork.
 ![Collaborators](.pics/collaborators.png)
