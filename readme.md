@@ -51,7 +51,6 @@ Strukturen är som följer, detaljerad förklaring nedan
     │   │   └── products.csv
     │   └── webapp
     │       └── WEB-INF
-    │           ├── WEB-INF.iml
     │           ├── api.html
     │           ├── search.html
     │           ├── style.css
@@ -62,15 +61,78 @@ Strukturen är som följer, detaljerad förklaring nedan
 
 1. `````pom.xml````` pomfilen är Mavens konfigurationsfil för projektet. Filen innehåller information som Maven behöver för att kompilera projektet. Om man behöver använda externa bibliotek behöver dessa skrivas in i pomfilen. Med allra största sannolikhet kommer ni inte att behöva ändra något i filen, information om hur filen är uppbyggd finns [här](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html) 
 1. `````readme.md````` filen som innehåller texten som ni läser nu. Detta är ingen mavenfil utan en fil som beskrivet innehållet i ett github-repository.
-1. `````src/````` mappen src är mappen under vilken all källkod och test.
+1. `````src/````` mappen src är mappen under vilken all källkod, test, och övriga resurser ligger.
 1. `````src/main````` här ligger all källkod och övriga resurser, ej test.
-1. `````readme.md`````
+1. `````src/main/java````` här ligger all javakod.
+1. `````src/main/resources/````` här ligger alla övriga resurser, exempelvis produktdatabas.
+1. `````src/main/webapp````` här ligger filerna som syns i webappen 
+1. `````src/test````` här lägger man implementationer av test
+
 ## Kompileringsinstruktioner
 
 För att kompilera systembolagsservern behöver ni har Maven installerat på era datorer. Instruktioner för att installera Maven finns nedan.
 
+Mavenkompilering är strukturerad kring olika type of build cycles, allt från att validera att projektet innehåller alla klasser som förväntas (validate), till att leverera/installera projektet på en server eller liknande (deploy). I den här uppgiften arbetar vi med cyklerna ````clean````, ````compile````, samt en variant av deploy, nämligen ````tomcat7:run```` som startar en lokal webbserver och kör vår servlet.
 
-
+* För att kompilera projektet, från projektroten, skriv: ````mvn compile```` detta kommer att kompilera programmet. Resultatet kommer att sparas i den nyskapade mappen ```target```. Kommandot borde resultera i en output liknande detta: 
+```
+sbserver >  mvn compile
+[INFO] Scanning for projects...
+[INFO]
+[INFO] --------------------< se.gu.ait.sbserver:sbserver >---------------------
+[INFO] Building sbserver 1.0-SNAPSHOT
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ sbserver ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ sbserver ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 26 source files to /Users/alan/work/sbserver/target/classes
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.230 s
+[INFO] Finished at: 2019-04-16T14:09:50+02:00
+[INFO] ------------------------------------------------------------------------
+```
+* För att köra webappen i en lokal webbserver, exekvera följande från projektets rot: ````mvn tomcat7:run````. Resultatet borde vara liknande detta:
+```
+sbserver >  mvn tomcat7:run 
+[INFO] Scanning for projects...
+[INFO]
+[INFO] --------------------< se.gu.ait.sbserver:sbserver >---------------------
+[INFO] Building sbserver 1.0-SNAPSHOT
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO]
+[INFO] >>> tomcat7-maven-plugin:2.2:run (default-cli) > process-classes @ sbserver >>>
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ sbserver ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ sbserver ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 26 source files to /Users/alan/work/sbserver/target/classes
+[INFO]
+[INFO] <<< tomcat7-maven-plugin:2.2:run (default-cli) < process-classes @ sbserver <<<
+[INFO]
+[INFO]
+[INFO] --- tomcat7-maven-plugin:2.2:run (default-cli) @ sbserver ---
+[INFO] Running war on http://localhost:9090/sbserver
+[INFO] Creating Tomcat server configuration at /Users/alan/work/sbserver/target/tomcat
+[INFO] create webapp with contextPath: /sbserver
+apr 16, 2019 2:15:59 EM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-bio-9090"]
+apr 16, 2019 2:15:59 EM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Tomcat
+apr 16, 2019 2:15:59 EM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.47
+apr 16, 2019 2:16:01 EM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-bio-9090"]
+```  
+När ni kommit så här långt så kan ni öppna denna länken [http://localhost:9090/sbserver/search/products/all?](http://localhost:9090/sbserver/search/products/all?) där eran lokala webbserver körs. För att stänga ner webbservern går ni tillbaka till fönstret där ni kört era mavenkommandon och trycker control+c.
 
 ## Installera Maven
 
