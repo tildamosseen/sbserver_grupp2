@@ -146,3 +146,13 @@ Följ instruktionerna på denna sida för att installera Maven i Windows:
 
 ### Maven i Linux
 Använd den pakethanterare som din linuxdist använder, exempelvis ````apt-get````
+
+# Arbeta med servern
+Gör en fork av repositoryt (knappen längst upp till höger på denna sida). Efter detta kommer ni att ha en egen version av koden. Det är i denna som ni ska arbeta i gruppen. Det räcker att en person gör en fork av repot och ger de andra medlemmarna skrivrättigheter till repot.
+Ni behöver aktivera issues för er fork av repot. Det gör ni i er inställningarna till er fork på Github, bilden nedan visar ett exempel. Bocka för boxen bredvid issues.
+När ni öppnar den här sidan i eran fork, kommer [den här länken](../../settings) att leda er till sidan med inställningar för er fork.
+![Issues](.pics/issues.png)
+
+För att ge era gruppmedlemmar skrivrättigheter till er fork behöve ni lägga till dem som collaborators i inställningarna till er fork. Bilden nedan visar ett exempel, skriv in era gruppmedlemmars mailadress eller githubidentiter i textfältet under Collaborators för att göra detta. 
+
+![Collaborators](.pics/collaborators.png)
