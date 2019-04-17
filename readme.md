@@ -4,7 +4,7 @@ Systembolagsservern innehåller en maveniserad version av systembolagsservern ni
 
 Maven strukturerar källkoden på ett specifikt sätt, det är viktigt att hålla sig till strukturen för att programmet ska fungera.
 
-Strukturen är som följer, detaljerad förklaring nedan
+Strukturen är som följer, detaljerad förklaring nedan:
 ```
 ├── pom.xml
 ├── readme.md
